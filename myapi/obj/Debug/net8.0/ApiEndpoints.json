@@ -1,0 +1,158 @@
+[
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "SelectAllStudent",
+    "RelativePath": "api/Student",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "GetAllComplaints",
+    "RelativePath": "apiv1/Complaints/AllComplaints",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "UpdateComplaintsStatus",
+    "RelativePath": "apiv1/Complaints/HostelUpdateComplaintsStatus/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cm",
+        "Type": "myapi.Models.ComplainUpdateStatusModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "GetResolvedComplaints",
+    "RelativePath": "apiv1/Complaints/ResolvedComplaints",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "StudentComplainAdd",
+    "RelativePath": "apiv1/Complaints/StudentAddComplain",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cm",
+        "Type": "myapi.Models.ComplainAddEditModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "StudentComplainAddEdit",
+    "RelativePath": "apiv1/Complaints/StudentUpdateComplain/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cm",
+        "Type": "myapi.Models.ComplainAddEditModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "GetUnResolvedComplaints",
+    "RelativePath": "apiv1/Complaints/UnResolvedComplaints",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HostelsController",
+    "Method": "HostelSelectAll",
+    "RelativePath": "apiv1/Hostels/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HostelsController",
+    "Method": "HostelLogin",
+    "RelativePath": "apiv1/Hostels/HostelLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hm",
+        "Type": "myapi.Models.HostelLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "HostelsController",
+    "Method": "HostelUpdatePassword",
+    "RelativePath": "apiv1/Hostels/UpdatePassword",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "hm",
+        "Type": "myapi.Models.HostelUpdatePasswordModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.ComplaintsController",
+    "Method": "StudentDeleteComplaint",
+    "RelativePath": "StudentDeleteComplaint/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
