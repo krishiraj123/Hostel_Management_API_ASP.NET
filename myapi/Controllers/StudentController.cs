@@ -22,7 +22,7 @@ namespace myapi.Controllers
             _loginValidator = loginValidator;
         }
 
-        [HttpGet("/getStudent")]
+        [HttpGet("getStudent")]
         public IActionResult SelectAllStudent()
         {
             try
@@ -55,14 +55,13 @@ namespace myapi.Controllers
             }
         }
 
-        [HttpGet("/getStudent/{id}")]
+        [HttpGet("getStudent/{id}")]
         public IActionResult GetStudentID(int id)
         {
             try
             {
-                var res = _studentRepository.SelectAllStudent();
-
-                if (res == null || !res.Any())
+                var res = _studentRepository.StudentSelectByID(id);
+                if (res == null)
                 {
                     return NotFound(new
                     {
@@ -95,7 +94,7 @@ namespace myapi.Controllers
             {
                 var validateRes = _loginValidator.Validate(sm);
 
-                if (validateRes.IsValid)
+                if (!validateRes.IsValid)
                 {
 
                     return BadRequest(new
@@ -129,6 +128,109 @@ namespace myapi.Controllers
                     Status = "Failure",
                     Message = "Internal server error",
                     Error = ex.Message
+                });
+            }
+        }
+
+        [HttpDelete("studentDelete/{id}")]
+        public IActionResult DeleteStudent(int id) 
+        {
+            try
+            {
+                var res = _studentRepository.StudentDelete(id);
+
+                if(!res)
+                {
+                    return BadRequest(new
+                    {
+                        Status = "Failure",
+                        Errors = "Failed to Delete"
+                    });
+                }
+                else
+                {
+                    return Ok(new
+                    {
+                        Status = "Failure",
+                        Message = "Student Deleted Successfully"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new
+                {
+                    Status = "Failure",
+                    Message = "Internal server error",
+                    Error = ex.Message
+                });
+            }
+        }
+
+        [HttpPost("insertStudent")]
+        public IActionResult InsertStudent([FromBody] StudentAddEditModel sm)
+        {
+            var validateRes = _addEditValidator.Validate(sm);
+
+            if(!validateRes.IsValid)
+            {
+                return BadRequest(new
+                {
+                    Status = "Failure",
+                    Errors = validateRes.Errors.Select(e => e.ErrorMessage)
+                });
+            }
+
+            var res = _studentRepository.StudentInsert(sm);
+
+            if (res)
+            {
+                return Ok(new
+                {
+                    Status = "Success",
+                    Message = "Insertion successful"
+                });
+            }
+            else
+            {
+                return BadRequest(new
+                {
+                    Status = "Failure",
+                    Errors = "Failed to Insert"
+                });
+            }
+        }
+
+        [HttpPut("updateStudent/{id}")]
+        public IActionResult UpdateStudent(int id,[FromBody] StudentAddEditModel sm)
+        {
+            var validateRes = _addEditValidator.Validate(sm);
+
+            if (!validateRes.IsValid)
+            {
+                return BadRequest(new
+                {
+                    Status = "Failure",
+                    Errors = validateRes.Errors.Select(e => e.ErrorMessage)
+                });
+            }
+
+            var res = _studentRepository.StudentUpdate(id,sm);
+
+            if (res)
+            {
+                return Ok(new
+                {
+                    Status = "Success",
+                    Message = "Update successful"
+                });
+            }
+            else
+            {
+                return BadRequest(new
+                {
+                    Status = "Failure",
+                    Errors = "Failed to Update"
                 });
             }
         }

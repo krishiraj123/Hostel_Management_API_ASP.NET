@@ -2,11 +2,96 @@
   {
     "ContainingType": "myapi.Controllers.StudentController",
     "Method": "SelectAllStudent",
-    "RelativePath": "api/Student",
+    "RelativePath": "api/Student/getStudent",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "GetStudentID",
+    "RelativePath": "api/Student/getStudent/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "InsertStudent",
+    "RelativePath": "api/Student/insertStudent",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sm",
+        "Type": "StudentAddEditModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "DeleteStudent",
+    "RelativePath": "api/Student/studentDelete/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "StudentLogin",
+    "RelativePath": "api/Student/studentLogin",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "sm",
+        "Type": "StudentLoginModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "myapi.Controllers.StudentController",
+    "Method": "UpdateStudent",
+    "RelativePath": "api/Student/updateStudent/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "sm",
+        "Type": "StudentAddEditModel",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": []
   },
   {

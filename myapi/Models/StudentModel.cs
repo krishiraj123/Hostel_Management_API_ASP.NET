@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 public class StudentModel
 {    
@@ -71,17 +72,19 @@ public class StudentModel
     public int HostelID { get; set; }
 
     public bool IsDeleted { get; set; } = false;
-        
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-    public DateTime UpdatedAt { get; set; } = DateTime.Now;
+    public DateTime CreatedAt { get; set; }
 
-    public string HostelName { get; set; }
-    public string RoomNumber { get; set; }
+    public DateTime UpdatedAt { get; set; }
+
+    [Newtonsoft.Json.JsonIgnore]
+    public string? HostelName { get; set; }
+    [Newtonsoft.Json.JsonIgnore]
+    public string? RoomNumber { get; set; }
 }
 
 public class StudentAddEditModel
-{
+{    
     public int? StudentID { get; set; }
 
 
@@ -148,11 +151,11 @@ public class StudentAddEditModel
 
     public int HostelID { get; set; }
 
-    public bool IsDeleted { get; set; } = false;
+    //public bool IsDeleted { get; set; }
 
-    public DateTime CreatedAt { get; set; } = DateTime.Now;
+    //public DateTime CreatedAt { get; set; } = DateTime.Now;
 
-    public DateTime UpdatedAt { get; set; } = DateTime.Now;
+    //public DateTime UpdatedAt { get; set; } = DateTime.Now;
 }
 
 public class StudentLoginModel
